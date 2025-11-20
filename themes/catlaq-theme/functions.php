@@ -410,3 +410,237 @@ function catlaq_ai_theme_run_structure_on_init(): void {
 	}
 }
 add_action( 'init', 'catlaq_ai_theme_run_structure_on_init' );
+
+/**
+ * Add theme color palette support for the plugin.
+ */
+function catlaq_ai_theme_editor_color_palette() {
+	add_theme_support(
+		'editor-color-palette',
+		array(
+			array(
+				'name'  => __( 'Primary Blue', 'catlaq-ai' ),
+				'slug'  => 'primary-blue',
+				'color' => '#2563eb',
+			),
+			array(
+				'name'  => __( 'Secondary Green', 'catlaq-ai' ),
+				'slug'  => 'secondary-green',
+				'color' => '#10b981',
+			),
+			array(
+				'name'  => __( 'Accent Gold', 'catlaq-ai' ),
+				'slug'  => 'accent-gold',
+				'color' => '#f59e0b',
+			),
+			array(
+				'name'  => __( 'Danger Red', 'catlaq-ai' ),
+				'slug'  => 'danger-red',
+				'color' => '#ef4444',
+			),
+			array(
+				'name'  => __( 'Gray Dark', 'catlaq-ai' ),
+				'slug'  => 'gray-dark',
+				'color' => '#1f2937',
+			),
+			array(
+				'name'  => __( 'Gray Light', 'catlaq-ai' ),
+				'slug'  => 'gray-light',
+				'color' => '#f9fafb',
+			),
+		)
+	);
+
+	add_theme_support(
+		'editor-gradient-presets',
+		array(
+			array(
+				'name'     => __( 'Expo Gradient', 'catlaq-ai' ),
+				'gradient' => 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+				'slug'     => 'expo-gradient',
+			),
+			array(
+				'name'     => __( 'Success Gradient', 'catlaq-ai' ),
+				'gradient' => 'linear-gradient(135deg, #10b981 0%, #34d399 100%)',
+				'slug'     => 'success-gradient',
+			),
+		)
+	);
+}
+add_action( 'after_setup_theme', 'catlaq_ai_theme_editor_color_palette' );
+
+/**
+ * Register custom post types and taxonomies for the Digital Expo.
+ */
+function catlaq_ai_theme_register_cpt_tax(): void {
+	// Register Booth post type
+	register_post_type(
+		'catlaq_booth',
+		array(
+			'label'       => __( 'Expo Booths', 'catlaq-ai' ),
+			'public'      => true,
+			'has_archive' => true,
+			'supports'    => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+		)
+	);
+
+	// Register Product Category taxonomy
+	register_taxonomy(
+		'catlaq_product_category',
+		'catlaq_booth',
+		array(
+			'label'       => __( 'Product Categories', 'catlaq-ai' ),
+			'public'      => true,
+			'hierarchical' => true,
+		)
+	);
+}
+add_action( 'init', 'catlaq_ai_theme_register_cpt_tax' );
+
+/**
+ * Enqueue plugin-specific assets when shortcodes are used.
+ */
+function catlaq_ai_theme_enqueue_plugin_assets(): void {
+	// Check if Catlaq plugin is active
+	if ( ! function_exists( 'catlaq_online_expo' ) ) {
+		return;
+	}
+
+	// Enqueue plugin frontend styles
+	if ( has_shortcode( get_post()->post_content, 'catlaq_expo_booths' ) ||
+		 has_shortcode( get_post()->post_content, 'catlaq_digital_expo_showcase' ) ||
+		 has_shortcode( get_post()->post_content, 'catlaq_expo_category_filter' ) ) {
+		do_action( 'catlaq_enqueue_digital_expo_assets' );
+	}
+
+	if ( has_shortcode( get_post()->post_content, 'catlaq_engagement_feed' ) ||
+		 has_shortcode( get_post()->post_content, 'catlaq_chatbot' ) ) {
+		do_action( 'catlaq_enqueue_engagement_assets' );
+	}
+}
+add_action( 'wp', 'catlaq_ai_theme_enqueue_plugin_assets' );
+
+/**
+ * Add admin menu for theme settings.
+ */
+function catlaq_ai_theme_add_admin_menu(): void {
+	add_menu_page(
+		__( 'Catlaq Theme Settings', 'catlaq-ai' ),
+		__( 'Catlaq Theme', 'catlaq-ai' ),
+		'manage_options',
+		'catlaq-theme-settings',
+		'catlaq_ai_theme_settings_page',
+		'dashicons-building',
+		60
+	);
+}
+add_action( 'admin_menu', 'catlaq_ai_theme_add_admin_menu' );
+
+/**
+ * Render theme settings page.
+ */
+function catlaq_ai_theme_settings_page(): void {
+	?>
+	<div class="wrap">
+		<h1><?php esc_html_e( 'Catlaq Theme Settings', 'catlaq-ai' ); ?></h1>
+		
+		<div class="card">
+			<h2><?php esc_html_e( 'Theme Features', 'catlaq-ai' ); ?></h2>
+			<ul>
+				<li><?php esc_html_e( '✓ Digital Expo Integration', 'catlaq-ai' ); ?></li>
+				<li><?php esc_html_e( '✓ Dark/Light Mode Support', 'catlaq-ai' ); ?></li>
+				<li><?php esc_html_e( '✓ Responsive Dashboard Layout', 'catlaq-ai' ); ?></li>
+				<li><?php esc_html_e( '✓ Modern Animations & Effects', 'catlaq-ai' ); ?></li>
+				<li><?php esc_html_e( '✓ Membership Management Pages', 'catlaq-ai' ); ?></li>
+				<li><?php esc_html_e( '✓ AI Agent Integration', 'catlaq-ai' ); ?></li>
+			</ul>
+		</div>
+
+		<div class="card">
+			<h2><?php esc_html_e( 'Essential Pages', 'catlaq-ai' ); ?></h2>
+			<p><?php esc_html_e( 'The following pages are automatically created and managed:', 'catlaq-ai' ); ?></p>
+			<ul>
+				<li><strong><?php esc_html_e( 'Dashboard:', 'catlaq-ai' ); ?></strong> <code><?php echo esc_html( home_url( '/catlaq-dashboard' ) ); ?></code></li>
+				<li><strong><?php esc_html_e( 'Digital Expo:', 'catlaq-ai' ); ?></strong> <code><?php echo esc_html( home_url( '/digital-expo' ) ); ?></code></li>
+				<li><strong><?php esc_html_e( 'Membership Plans:', 'catlaq-ai' ); ?></strong> <code><?php echo esc_html( home_url( '/membership-plans' ) ); ?></code></li>
+				<li><strong><?php esc_html_e( 'Access Portal:', 'catlaq-ai' ); ?></strong> <code><?php echo esc_html( home_url( '/catlaq-access' ) ); ?></code></li>
+			</ul>
+		</div>
+
+		<div class="card">
+			<h2><?php esc_html_e( 'Available Shortcodes', 'catlaq-ai' ); ?></h2>
+			<table class="widefat striped">
+				<thead>
+					<tr>
+						<th><?php esc_html_e( 'Shortcode', 'catlaq-ai' ); ?></th>
+						<th><?php esc_html_e( 'Description', 'catlaq-ai' ); ?></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>[catlaq_membership_overview]</code></td>
+						<td><?php esc_html_e( 'Display current user membership status', 'catlaq-ai' ); ?></td>
+					</tr>
+					<tr>
+						<td><code>[catlaq_membership_plans]</code></td>
+						<td><?php esc_html_e( 'Display all available membership plans', 'catlaq-ai' ); ?></td>
+					</tr>
+					<tr>
+						<td><code>[catlaq_auth_portal]</code></td>
+						<td><?php esc_html_e( 'Display login and registration forms', 'catlaq-ai' ); ?></td>
+					</tr>
+					<tr>
+						<td><code>[catlaq_policy type="privacy"]</code></td>
+						<td><?php esc_html_e( 'Display privacy, terms, or refund policy', 'catlaq-ai' ); ?></td>
+					</tr>
+					<tr>
+						<td><code>[catlaq_engagement_feed]</code></td>
+						<td><?php esc_html_e( 'Display activity stream and engagement', 'catlaq-ai' ); ?></td>
+					</tr>
+					<tr>
+						<td><code>[catlaq_expo_booths]</code></td>
+						<td><?php esc_html_e( 'Display digital expo booths', 'catlaq-ai' ); ?></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<?php
+}
+
+/**
+ * Helper function to check if user has access to a feature.
+ */
+function catlaq_ai_user_can_access_feature( string $feature ): bool {
+	if ( ! is_user_logged_in() ) {
+		return false;
+	}
+
+	if ( ! function_exists( 'catlaq_online_expo' ) ) {
+		return true;
+	}
+
+	$memberships = new \Catlaq\Expo\Memberships();
+	$user_plan   = $memberships->user_membership( get_current_user_id() );
+
+	return ! empty( $user_plan );
+}
+
+/**
+ * Helper function to get membership badge.
+ */
+function catlaq_ai_get_membership_badge( int $user_id ): string {
+	if ( ! function_exists( 'catlaq_online_expo' ) ) {
+		return '';
+	}
+
+	$memberships = new \Catlaq\Expo\Memberships();
+	$plan        = $memberships->user_membership( $user_id );
+
+	if ( empty( $plan ) ) {
+		return '';
+	}
+
+	$label = $plan['label'] ?? 'Member';
+	return sprintf( '<span class="catlaq-badge">%s</span>', esc_html( $label ) );
+}

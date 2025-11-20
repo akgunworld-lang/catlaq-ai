@@ -13,6 +13,7 @@
 </head>
 <body <?php body_class( 'catlaq-theme-shell' ); ?>>
 <?php wp_body_open(); ?>
+<button class="catlaq-theme-toggle" title="<?php esc_attr_e( 'Toggle dark mode', 'catlaq-ai' ); ?>">🌙</button>
 <header class="catlaq-header" role="banner">
 	<div class="catlaq-header__inner">
 		<div class="site-branding">
@@ -50,12 +51,21 @@
 			?>
 		</nav>
 		<div class="catlaq-header__cta">
-			<a class="catlaq-cta catlaq-cta--ghost" href="<?php echo esc_url( wp_login_url() ); ?>">
-				<?php esc_html_e( 'Sign In', 'catlaq-ai' ); ?>
-			</a>
-			<a class="catlaq-cta catlaq-cta--solid" href="<?php echo esc_url( home_url( '/catlaq-access' ) ); ?>">
-				<?php esc_html_e( 'Sign Up', 'catlaq-ai' ); ?>
-			</a>
+			<?php if ( is_user_logged_in() ) : ?>
+				<a class="catlaq-cta catlaq-cta--ghost" href="<?php echo esc_url( home_url( '/catlaq-dashboard' ) ); ?>">
+					<?php esc_html_e( 'Dashboard', 'catlaq-ai' ); ?>
+				</a>
+				<a class="catlaq-cta catlaq-cta--solid" href="<?php echo esc_url( wp_logout_url( home_url() ) ); ?>">
+					<?php esc_html_e( 'Logout', 'catlaq-ai' ); ?>
+				</a>
+			<?php else : ?>
+				<a class="catlaq-cta catlaq-cta--ghost" href="<?php echo esc_url( wp_login_url() ); ?>">
+					<?php esc_html_e( 'Sign In', 'catlaq-ai' ); ?>
+				</a>
+				<a class="catlaq-cta catlaq-cta--solid" href="<?php echo esc_url( home_url( '/catlaq-access' ) ); ?>">
+					<?php esc_html_e( 'Sign Up', 'catlaq-ai' ); ?>
+				</a>
+			<?php endif; ?>
 		</div>
 	</div>
 </header>

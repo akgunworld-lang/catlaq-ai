@@ -10,8 +10,12 @@
 		<div class="site-info">
 			<span>&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?></span>
 			<span class="separator">•</span>
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'catlaq-ai' ) ); ?>">
-				<?php esc_html_e( 'Powered by WordPress', 'catlaq-ai' ); ?>
+			<a href="<?php echo esc_url( home_url( '/privacy-policy' ) ); ?>">
+				<?php esc_html_e( 'Privacy Policy', 'catlaq-ai' ); ?>
+			</a>
+			<span class="separator">•</span>
+			<a href="<?php echo esc_url( home_url( '/terms-of-service' ) ); ?>">
+				<?php esc_html_e( 'Terms of Service', 'catlaq-ai' ); ?>
 			</a>
 		</div>
 		<?php
@@ -26,6 +30,13 @@
 			);
 		}
 		?>
+	</div>
+	<div class="catlaq-footer__credit">
+		<p><?php echo sprintf( 
+			wp_kses_post( __( 'Built with <a href="%s">Catlaq AI</a> • <a href="%s">WordPress</a>', 'catlaq-ai' ) ),
+			esc_url( 'https://catlaq.ai' ),
+			esc_url( 'https://wordpress.org/' )
+		); ?></p>
 	</div>
 </footer>
 <?php wp_footer(); ?>
