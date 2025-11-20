@@ -1,0 +1,875 @@
+/*
+Theme Name: Catlaq AI
+Description: Modern block theme for Catlaq AI WordPress plugin with Digital Expo and messaging features.
+Version: 1.0.0
+Author: Catlaq AI Team
+Author URI: https://catlaq.ai
+License: GPL v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: catlaq-ai
+Requires at least: 6.0
+Requires PHP: 8.0
+*/
+
+/* 
+ * Catlaq AI Theme - Main Stylesheet
+ * Modern, responsive design for AI-powered Digital Expo
+ */
+
+:root {
+    /* Color Palette */
+    --catlaq-primary: #667eea;
+    --catlaq-primary-dark: #5a6fd8;
+    --catlaq-secondary: #764ba2;
+    --catlaq-accent: #f093fb;
+    --catlaq-success: #48bb78;
+    --catlaq-warning: #ed8936;
+    --catlaq-error: #f56565;
+    --catlaq-info: #4299e1;
+
+    /* Neutrals */
+    --catlaq-white: #ffffff;
+    --catlaq-gray-50: #f7fafc;
+    --catlaq-gray-100: #edf2f7;
+    --catlaq-gray-200: #e2e8f0;
+    --catlaq-gray-300: #cbd5e0;
+    --catlaq-gray-400: #a0aec0;
+    --catlaq-gray-500: #718096;
+    --catlaq-gray-600: #4a5568;
+    --catlaq-gray-700: #2d3748;
+    --catlaq-gray-800: #1a202c;
+    --catlaq-gray-900: #171923;
+
+    /* Typography */
+    --catlaq-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --catlaq-font-size-xs: 0.75rem;
+    --catlaq-font-size-sm: 0.875rem;
+    --catlaq-font-size-base: 1rem;
+    --catlaq-font-size-lg: 1.125rem;
+    --catlaq-font-size-xl: 1.25rem;
+    --catlaq-font-size-2xl: 1.5rem;
+    --catlaq-font-size-3xl: 1.875rem;
+    --catlaq-font-size-4xl: 2.25rem;
+
+    /* Spacing */
+    --catlaq-space-1: 0.25rem;
+    --catlaq-space-2: 0.5rem;
+    --catlaq-space-3: 0.75rem;
+    --catlaq-space-4: 1rem;
+    --catlaq-space-5: 1.25rem;
+    --catlaq-space-6: 1.5rem;
+    --catlaq-space-8: 2rem;
+    --catlaq-space-10: 2.5rem;
+    --catlaq-space-12: 3rem;
+    --catlaq-space-16: 4rem;
+    --catlaq-space-20: 5rem;
+
+    /* Border Radius */
+    --catlaq-radius-sm: 0.125rem;
+    --catlaq-radius: 0.25rem;
+    --catlaq-radius-md: 0.375rem;
+    --catlaq-radius-lg: 0.5rem;
+    --catlaq-radius-xl: 0.75rem;
+    --catlaq-radius-2xl: 1rem;
+    --catlaq-radius-full: 9999px;
+
+    /* Shadows */
+    --catlaq-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --catlaq-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --catlaq-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --catlaq-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --catlaq-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Reset & Base Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--catlaq-font-family);
+    font-size: var(--catlaq-font-size-base);
+    line-height: 1.6;
+    color: var(--catlaq-gray-800);
+    background-color: var(--catlaq-gray-50);
+    margin: 0;
+    padding: 0;
+}
+
+/* WordPress Blocks Styling */
+.wp-block-group,
+.wp-block-cover,
+.wp-block-columns {
+    margin-bottom: var(--catlaq-space-8);
+}
+
+.wp-block-button__link {
+    background: linear-gradient(135deg, var(--catlaq-primary) 0%, var(--catlaq-secondary) 100%);
+    border: none;
+    border-radius: var(--catlaq-radius-lg);
+    color: var(--catlaq-white);
+    font-weight: 600;
+    padding: var(--catlaq-space-3) var(--catlaq-space-6);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.wp-block-button__link:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--catlaq-shadow-lg);
+    opacity: 0.9;
+}
+
+/* Header */
+.catlaq-header {
+    background: rgba(11, 15, 36, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 25px 35px rgba(5, 9, 40, 0.35);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(16px);
+}
+
+.catlaq-header__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.catlaq-theme-shell {
+    background-color: #040713;
+    color: #e2e8f0;
+}
+
+.catlaq-header .site-branding {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.catlaq-header .site-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.catlaq-header .site-tagline {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.875rem;
+}
+
+.catlaq-header .custom-logo-link img {
+    max-height: 48px;
+    width: auto;
+}
+
+/* Navigation */
+.site-navigation {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.catlaq-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.catlaq-menu li {
+    margin: 0;
+}
+
+.catlaq-menu a {
+    color: #f1f5f9;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.catlaq-menu a:hover,
+.catlaq-menu .current-menu-item > a {
+    background: rgba(103, 243, 193, 0.18);
+    color: #67f3c1;
+}
+
+.catlaq-header__cta {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.catlaq-cta {
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: 0.45rem 1.25rem;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.catlaq-cta--ghost {
+    color: #f8fafc;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.catlaq-cta--solid {
+    color: #050f24;
+    background: linear-gradient(130deg, #67f3c1, #47d3ff);
+}
+
+.catlaq-cta:hover {
+    transform: translateY(-1px);
+    opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+    .catlaq-header__inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .catlaq-menu {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .catlaq-header__cta {
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
+
+/* Landing hero + sections */
+.catlaq-landing {
+    background: #030510;
+    color: #cfd8ef;
+}
+
+.catlaq-hero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 4rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.catlaq-hero__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.catlaq-badge {
+    display: inline-block;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(103, 243, 193, 0.15);
+    color: #67f3c1;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.catlaq-hero__content h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: #ffffff;
+    margin: 0;
+}
+
+.catlaq-hero__content p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+}
+
+.catlaq-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.catlaq-hero__panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.catlaq-hero__card {
+    background: radial-gradient(circle at top, #101636, #050920);
+    padding: 2rem;
+    border-radius: 24px;
+    box-shadow: 0 35px 60px rgba(4, 6, 23, 0.65);
+    min-width: 280px;
+}
+
+.catlaq-hero__card h3 {
+    margin-top: 0;
+    color: #67f3c1;
+}
+
+.catlaq-hero__card ul {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.catlaq-hero__card li::before {
+    content: '•';
+    color: #47d3ff;
+    margin-right: 0.4rem;
+}
+
+.catlaq-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.catlaq-section--split {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.catlaq-section--dark {
+    background: rgba(8, 12, 35, 0.75);
+    border-radius: 24px;
+}
+
+.catlaq-section__text h2 {
+    color: #ffffff;
+    margin: 0;
+}
+
+.catlaq-section__text p {
+    margin: 0;
+    color: #a0aec0;
+}
+
+/* Content Areas */
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--catlaq-space-8) var(--catlaq-space-6);
+}
+
+/* Cards */
+.card {
+    background: var(--catlaq-white);
+    border-radius: var(--catlaq-radius-xl);
+    box-shadow: var(--catlaq-shadow);
+    padding: var(--catlaq-space-6);
+    margin-bottom: var(--catlaq-space-6);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: var(--catlaq-shadow-lg);
+    transform: translateY(-2px);
+}
+
+/* Marketplace Specific */
+.digital-expo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--catlaq-space-6);
+    margin: var(--catlaq-space-8) 0;
+}
+
+.product-card {
+    background: var(--catlaq-white);
+    border-radius: var(--catlaq-radius-xl);
+    box-shadow: var(--catlaq-shadow);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    box-shadow: var(--catlaq-shadow-xl);
+    transform: translateY(-4px);
+}
+
+.product-category-filter-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--catlaq-space-3);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.category-filter-item a {
+    display: block;
+    padding: var(--catlaq-space-2) var(--catlaq-space-4);
+    background-color: var(--catlaq-gray-100);
+    color: var(--catlaq-gray-700);
+    border-radius: var(--catlaq-radius-full);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.category-filter-item a:hover {
+    background-color: var(--catlaq-primary);
+    color: var(--catlaq-white);
+    transform: translateY(-1px);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: var(--catlaq-space-4);
+}
+
+.product-title {
+    font-size: var(--catlaq-font-size-lg);
+    font-weight: 600;
+    margin-bottom: var(--catlaq-space-2);
+    color: var(--catlaq-gray-800);
+}
+
+.product-price {
+    font-size: var(--catlaq-font-size-xl);
+    font-weight: 700;
+    color: var(--catlaq-primary);
+}
+
+/* Chat Widget */
+.catlaq-chat-widget {
+    position: fixed;
+    bottom: var(--catlaq-space-6);
+    right: var(--catlaq-space-6);
+    z-index: 1000;
+}
+
+.chat-toggle {
+    background: linear-gradient(135deg, var(--catlaq-primary) 0%, var(--catlaq-secondary) 100%);
+    border: none;
+    border-radius: var(--catlaq-radius-full);
+    color: var(--catlaq-white);
+    cursor: pointer;
+    font-size: var(--catlaq-font-size-lg);
+    height: 60px;
+    width: 60px;
+    box-shadow: var(--catlaq-shadow-lg);
+    transition: all 0.3s ease;
+}
+
+.chat-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: var(--catlaq-shadow-xl);
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: var(--catlaq-space-4);
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: var(--catlaq-space-2);
+    color: var(--catlaq-gray-700);
+}
+
+.form-input {
+    width: 100%;
+    padding: var(--catlaq-space-3);
+    border: 2px solid var(--catlaq-gray-200);
+    border-radius: var(--catlaq-radius-lg);
+    font-size: var(--catlaq-font-size-base);
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--catlaq-primary);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.mt-4 {
+    margin-top: var(--catlaq-space-4);
+}
+
+.mb-4 {
+    margin-bottom: var(--catlaq-space-4);
+}
+
+.ml-4 {
+    margin-left: var(--catlaq-space-4);
+}
+
+.mr-4 {
+    margin-right: var(--catlaq-space-4);
+}
+
+.p-4 {
+    padding: var(--catlaq-space-4);
+}
+
+.p-6 {
+    padding: var(--catlaq-space-6);
+}
+
+.p-8 {
+    padding: var(--catlaq-space-8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: var(--catlaq-font-size-3xl);
+    }
+
+    .main-navigation {
+        flex-direction: column;
+        gap: var(--catlaq-space-4);
+    }
+
+    .main-navigation ul {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--catlaq-space-3);
+    }
+
+    .digital-expo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content-wrapper {
+        padding: var(--catlaq-space-4);
+    }
+}
+
+/* WordPress Core Compatibility */
+.alignwide {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alignfull {
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(-50vw + 50%);
+}
+
+/* Footer */
+.site-footer {
+    background: var(--catlaq-gray-900);
+    color: var(--catlaq-gray-300);
+    padding: var(--catlaq-space-12) var(--catlaq-space-6);
+    text-align: center;
+}
+
+.site-footer a {
+    color: var(--catlaq-primary);
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    color: var(--catlaq-accent);
+}
+
+/* ---------------------------------------------
+   Catlaq Dashboard Template
+--------------------------------------------- */
+.catlaq-dashboard {
+    display: flex;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    position: relative;
+}
+
+.catlaq-dashboard__sidebar {
+    flex: 0 0 250px;
+    background: #0c0c1d;
+    color: #fff;
+    border-radius: 16px;
+    padding: 1.25rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 20px 45px -15px rgba(5, 9, 40, 0.6);
+}
+
+.catlaq-dashboard__sidebar-content {
+    margin-top: 1rem;
+}
+
+.catlaq-dashboard__toggle {
+    width: 100%;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    color: inherit;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.catlaq-dashboard__toggle-icon::after {
+    content: '▾';
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.catlaq-dashboard__sidebar.is-open .catlaq-dashboard__toggle-icon::after {
+    transform: rotate(180deg);
+}
+
+.catlaq-dashboard__categories {
+    list-style: none;
+    margin: 1rem 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.catlaq-dashboard__categories a {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.35rem 0.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+    transition: background 0.3s ease;
+}
+
+.catlaq-dashboard__categories a:hover {
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.catlaq-dashboard__content {
+    flex: 1;
+    background: #0d101f;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.5);
+    color: #f8f8ff;
+}
+
+.catlaq-dashboard__header h1 {
+    margin-bottom: 0.25rem;
+}
+
+.catlaq-dashboard__widgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.catlaq-dashboard__plans,
+.catlaq-dashboard__policies {
+    margin-top: 2rem;
+}
+
+.catlaq-dashboard__policy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+}
+
+.catlaq-dashboard__card,
+.catlaq-card {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    padding: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.catlaq-dashboard__profile-meta {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+
+.catlaq-dashboard__profile-meta li {
+    margin-bottom: 0.35rem;
+}
+
+.catlaq-plan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.catlaq-plan-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.catlaq-plan-card__price {
+    font-size: 1.25rem;
+    color: #64f4ab;
+}
+
+.catlaq-plan-card__segment {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(71, 211, 255, 0.12);
+    color: #47d3ff;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.catlaq-plan-card__tagline {
+    color: #cbd5f5;
+    margin: 0.5rem 0 0;
+    font-size: 0.95rem;
+}
+
+.catlaq-membership__segment-badge {
+    display: inline-block;
+    padding: 0.3rem 0.85rem;
+    border-radius: 999px;
+    background: rgba(103, 243, 193, 0.15);
+    color: #67f3c1;
+    margin-bottom: 0.75rem;
+    font-size: 0.8rem;
+}
+
+.catlaq-plan-card__cta {
+    border: none;
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(120deg, #667eea, #764ba2);
+    color: #fff;
+    cursor: pointer;
+}
+
+.catlaq-membership__features,
+.catlaq-membership__quotas,
+.catlaq-plan-card__features,
+.catlaq-policy {
+    list-style: none;
+    margin: 0.5rem 0;
+    padding: 0;
+}
+
+.catlaq-policy li {
+    margin-bottom: 0.35rem;
+}
+
+.catlaq-auth-portal {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.catlaq-auth-portal__block form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.catlaq-auth-portal__block input,
+.catlaq-auth-portal__block button {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.25);
+    color: #fff;
+}
+
+.catlaq-auth-portal__block button {
+    background: #67f3c1;
+    color: #050f24;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.catlaq-auth-portal__roles {
+    margin-top: 2rem;
+    background: rgba(6, 9, 25, 0.55);
++    border-radius: 20px;
+    padding: 1.5rem;
+}
+
+.catlaq-auth-portal__roles ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.catlaq-auth-portal__roles li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.catlaq-auth-portal__roles a {
+    color: #67f3c1;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 1024px) {
+    .catlaq-dashboard {
+        flex-direction: column;
+    }
+
+    .catlaq-dashboard__sidebar {
+        width: 100%;
+    }
+
+    .catlaq-dashboard__sidebar:not(.is-open) .catlaq-dashboard__sidebar-content {
+        display: none;
+    }
+}

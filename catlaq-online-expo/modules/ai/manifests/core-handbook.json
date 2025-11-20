@@ -1,0 +1,22 @@
+{
+  "moderation": {
+    "keywords": [
+      { "keyword": "spam", "label": "Spam or advertising" },
+      { "keyword": "fraud", "label": "Fraudulent intent" },
+      { "keyword": "nsfw", "label": "Policy violation" }
+    ],
+    "max_flags_before_block": 3
+  },
+  "scores": {
+    "base": 70,
+    "weights": {
+      "profile_verified": 10,
+      "rfq_success": 5,
+      "rfq_dispute": -15,
+      "ai_warning": -10
+    }
+  },
+  "templates": {
+    "summary": "AI Summary → Topic: {{topic}} | Sentiment: {{mood}} | Confidence: {{confidence}}%"
+  }
+}

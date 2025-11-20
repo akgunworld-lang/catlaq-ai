@@ -1,0 +1,55 @@
+/*
+Theme Name: Catlaq Maintenance Mode
+Theme URI: https://catlaq.com
+Author: Catlaq Platform
+Description: Minimal child theme that keeps the site in maintenance mode while Catlaq theme is under construction.
+Version: 1.0.0
+Template: catlaq-theme
+Text Domain: catlaq-maintenance
+*/
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top, #0f172a, #020617);
+    color: #e2e8f0;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.catlaq-maintenance {
+    max-width: 560px;
+    border-radius: 24px;
+    padding: 3rem 2rem;
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.65);
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(16px);
+}
+
+.catlaq-maintenance h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+    color: #67f3c1;
+}
+
+.catlaq-maintenance p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.catlaq-maintenance__badge {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    background: rgba(103, 243, 193, 0.15);
+    color: #67f3c1;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
