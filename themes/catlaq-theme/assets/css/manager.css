@@ -1,0 +1,429 @@
+/* Manager & Digital Expo Styles for Catlaq AI Theme */
+
+/* Digital Expo Container */
+.catlaq-expo {
+    background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+/* Expo Header */
+.catlaq-expo__header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1d4ed8 100%);
+    color: white;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.catlaq-expo__header h1 {
+    font-size: 2.5rem;
+    margin: 0 0 1rem 0;
+    color: white;
+}
+
+.catlaq-expo__header p {
+    font-size: 1.1rem;
+    opacity: 0.95;
+    margin: 0;
+}
+
+/* Expo Search & Filter */
+.catlaq-expo__controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.catlaq-expo__search {
+    flex: 1;
+    min-width: 250px;
+}
+
+.catlaq-expo__search input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    font-size: 1rem;
+}
+
+.catlaq-expo__filter-group {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.catlaq-expo__filter-btn {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    background: white;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.catlaq-expo__filter-btn:hover,
+.catlaq-expo__filter-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Booths Grid */
+.catlaq-booths {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.catlaq-booth {
+    background: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.catlaq-booth:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.catlaq-booth__header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.catlaq-booth__header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: skewX(-20deg);
+}
+
+.catlaq-booth__company {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.catlaq-booth__country {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+}
+
+.catlaq-booth__body {
+    padding: 1.5rem;
+    flex-grow: 1;
+}
+
+.catlaq-booth__description {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin: 0 0 1rem 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.catlaq-booth__categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.catlaq-booth__category {
+    display: inline-block;
+    background: var(--bg-light);
+    color: var(--primary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.catlaq-booth__stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+    padding: 1rem 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.catlaq-booth__stat {
+    text-align: center;
+}
+
+.catlaq-booth__stat-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.catlaq-booth__stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.catlaq-booth__footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.catlaq-booth__btn {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.catlaq-booth__btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.catlaq-booth__btn-primary:hover {
+    background: #1d4ed8;
+}
+
+.catlaq-booth__btn-secondary {
+    background: var(--bg-light);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.catlaq-booth__btn-secondary:hover {
+    background: var(--border-color);
+}
+
+/* RFQ Interface */
+.catlaq-rfq {
+    background: white;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.catlaq-rfq__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 1.5rem 0;
+}
+
+.catlaq-rfq__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.catlaq-rfq__form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.catlaq-rfq__form-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.catlaq-rfq__form-input,
+.catlaq-rfq__form-textarea,
+.catlaq-rfq__form-select {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.catlaq-rfq__form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.catlaq-rfq__form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.catlaq-rfq__btn-submit {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.catlaq-rfq__btn-submit:hover {
+    background: #1d4ed8;
+}
+
+.catlaq-rfq__btn-cancel {
+    background: var(--bg-light);
+    color: var(--text-primary);
+    padding: 0.75rem 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.catlaq-rfq__btn-cancel:hover {
+    background: var(--border-color);
+}
+
+/* Categories */
+.catlaq-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.catlaq-category-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.catlaq-category-card:hover {
+    border-color: var(--primary-color);
+    background: rgba(37, 99, 235, 0.05);
+    transform: translateY(-2px);
+}
+
+.catlaq-category-card__icon {
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.catlaq-category-card__name {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.catlaq-category-card__count {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .catlaq-expo__header h1 {
+        font-size: 1.75rem;
+    }
+
+    .catlaq-booths {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .catlaq-expo__controls {
+        flex-direction: column;
+    }
+
+    .catlaq-expo__search {
+        min-width: 100%;
+    }
+
+    .catlaq-categories {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .catlaq-rfq {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .catlaq-expo {
+        padding: 1rem 0;
+    }
+
+    .catlaq-expo__header {
+        padding: 2rem 1rem;
+    }
+
+    .catlaq-expo__header h1 {
+        font-size: 1.5rem;
+    }
+
+    .catlaq-booths {
+        grid-template-columns: 1fr;
+    }
+
+    .catlaq-categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .catlaq-booth__footer {
+        flex-direction: column;
+    }
+
+    .catlaq-booth__btn {
+        width: 100%;
+    }
+
+    .catlaq-rfq__form-actions {
+        flex-direction: column;
+    }
+
+    .catlaq-rfq__btn-submit,
+    .catlaq-rfq__btn-cancel {
+        width: 100%;
+    }
+}

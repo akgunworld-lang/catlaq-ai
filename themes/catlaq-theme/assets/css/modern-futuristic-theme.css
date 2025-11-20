@@ -1,0 +1,400 @@
+/* Modern & Futuristic Theme Styles for Catlaq AI */
+
+/* Advanced Gradient Backgrounds */
+.catlaq-modern__hero {
+    background: linear-gradient(
+        135deg,
+        #667eea 0%,
+        #764ba2 25%,
+        #f093fb 50%,
+        #4facfe 100%
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.catlaq-modern__hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.catlaq-modern__hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.catlaq-modern__hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0 0 1rem 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.8s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.catlaq-modern__hero p {
+    font-size: 1.3rem;
+    margin: 0;
+    opacity: 0.95;
+    animation: slideUp 0.8s ease 0.2s both;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Glass Morphism Cards */
+.catlaq-modern__glassmorphism {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.catlaq-modern__glassmorphism h3 {
+    color: white;
+    margin-top: 0;
+}
+
+.catlaq-modern__glassmorphism p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Neon Buttons */
+.catlaq-modern__btn-neon {
+    padding: 0.75rem 2rem;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    border-radius: 0.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.catlaq-modern__btn-neon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.catlaq-modern__btn-neon:hover::before {
+    left: 0;
+}
+
+.catlaq-modern__btn-neon:hover {
+    color: white;
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+}
+
+.catlaq-modern__btn-neon.active {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+}
+
+/* Floating Animation */
+.catlaq-modern__float {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Glow Effect */
+.catlaq-modern__glow {
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.4);
+    animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 30px rgba(37, 99, 235, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 50px rgba(37, 99, 235, 0.6);
+    }
+}
+
+/* Grid Background */
+.catlaq-modern__grid-bg {
+    background-image:
+        linear-gradient(0deg, transparent 24%, rgba(37, 99, 235, 0.05) 25%, rgba(37, 99, 235, 0.05) 26%, transparent 27%, transparent 74%, rgba(37, 99, 235, 0.05) 75%, rgba(37, 99, 235, 0.05) 76%, transparent 77%, transparent),
+        linear-gradient(90deg, transparent 24%, rgba(37, 99, 235, 0.05) 25%, rgba(37, 99, 235, 0.05) 26%, transparent 27%, transparent 74%, rgba(37, 99, 235, 0.05) 75%, rgba(37, 99, 235, 0.05) 76%, transparent 77%, transparent);
+    background-size: 50px 50px;
+    position: relative;
+}
+
+/* Particle Effect */
+.catlaq-modern__particles {
+    position: relative;
+}
+
+.catlaq-modern__particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: particleFloat 20s infinite;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.5;
+    }
+    90% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(100px);
+        opacity: 0;
+    }
+}
+
+/* Neumorphism Buttons */
+.catlaq-modern__btn-neumorphic {
+    background: #e0e5ec;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 
+        inset 2px 2px 5px #b8b9be,
+        inset -3px -3px 7px #ffffff;
+}
+
+.catlaq-modern__btn-neumorphic:hover {
+    box-shadow:
+        0 9px 16px rgba(0, 0, 0, 0.15),
+        0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.catlaq-modern__btn-neumorphic:active {
+    box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #ffffff;
+}
+
+/* 3D Card Effect */
+.catlaq-modern__card-3d {
+    perspective: 1000px;
+    cursor: pointer;
+    height: 100%;
+}
+
+.catlaq-modern__card-3d-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.catlaq-modern__card-3d:hover .catlaq-modern__card-3d-inner {
+    transform: rotateY(180deg);
+}
+
+.catlaq-modern__card-3d-front,
+.catlaq-modern__card-3d-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.catlaq-modern__card-3d-front {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+}
+
+.catlaq-modern__card-3d-back {
+    background: white;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    transform: rotateY(180deg);
+}
+
+/* Glassmorphism Button */
+.catlaq-modern__btn-glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.catlaq-modern__btn-glass:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Gradient Text */
+.catlaq-modern__gradient-text {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+/* Pulse Animation */
+.catlaq-modern__pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Gradient Border */
+.catlaq-modern__gradient-border {
+    position: relative;
+    background: white;
+    border-radius: 0.5rem;
+}
+
+.catlaq-modern__gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 0.5rem;
+    padding: 2px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+/* Blur Loading Animation */
+.catlaq-modern__loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(37, 99, 235, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .catlaq-modern__hero h1 {
+        font-size: 2rem;
+    }
+
+    .catlaq-modern__hero p {
+        font-size: 1rem;
+    }
+
+    .catlaq-modern__glassmorphism {
+        padding: 1.5rem;
+    }
+
+    .catlaq-modern__btn-neon {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .catlaq-modern__hero {
+        padding: 2rem 1rem;
+    }
+
+    .catlaq-modern__hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .catlaq-modern__hero p {
+        font-size: 0.9rem;
+    }
+
+    .catlaq-modern__card-3d-front,
+    .catlaq-modern__card-3d-back {
+        padding: 1rem;
+    }
+
+    .catlaq-modern__grid-bg {
+        background-size: 30px 30px;
+    }
+}

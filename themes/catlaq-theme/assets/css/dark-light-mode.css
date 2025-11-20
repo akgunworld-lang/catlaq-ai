@@ -1,0 +1,447 @@
+/* Dark & Light Mode Styles for Catlaq AI Theme */
+
+/* Light Mode (Default) */
+:root {
+    --theme-mode: light;
+    --primary-color: #2563eb;
+    --secondary-color: #10b981;
+    --accent-color: #f59e0b;
+    --danger-color: #ef4444;
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --border-color: #e5e7eb;
+    --bg-light: #f9fafb;
+    --bg-white: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --shadow-color-lg: rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Mode */
+[data-theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"],
+.dark-mode {
+    --theme-mode: dark;
+    --primary-color: #3b82f6;
+    --secondary-color: #34d399;
+    --accent-color: #fbbf24;
+    --danger-color: #f87171;
+    --text-primary: #f3f4f6;
+    --text-secondary: #d1d5db;
+    --border-color: #374151;
+    --bg-light: #1f2937;
+    --bg-white: #111827;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --shadow-color-lg: rgba(0, 0, 0, 0.5);
+}
+
+/* Theme Toggle Button */
+.catlaq-theme-toggle {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 12px var(--shadow-color-lg);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.catlaq-theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.catlaq-theme-toggle:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+    .catlaq-theme-toggle {
+        bottom: 1rem;
+        right: 1rem;
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+}
+
+/* Engagement Feed - Dark/Light Mode Support */
+.catlaq-engagement-feed {
+    background: var(--bg-light);
+    color: var(--text-primary);
+    padding: 2rem;
+    border-radius: 0.5rem;
+}
+
+.catlaq-engagement-feed__header {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.catlaq-engagement-feed__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.catlaq-engagement-feed__posts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.catlaq-post {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.catlaq-post:hover {
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.catlaq-post__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.catlaq-post__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.catlaq-post__author-info {
+    flex-grow: 1;
+}
+
+.catlaq-post__author-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.catlaq-post__author-role {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.catlaq-post__timestamp {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.catlaq-post__content {
+    color: var(--text-primary);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.catlaq-post__media {
+    margin: 1rem 0;
+    border-radius: 0.375rem;
+    overflow: hidden;
+    background: var(--bg-light);
+}
+
+.catlaq-post__media img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.catlaq-post__footer {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    gap: 1rem;
+}
+
+.catlaq-post__action {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: 0.375rem;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    border: none;
+    background: transparent;
+    font-weight: 500;
+}
+
+.catlaq-post__action:hover {
+    background: var(--bg-light);
+    color: var(--primary-color);
+}
+
+.catlaq-post__action-icon {
+    font-size: 1.1rem;
+}
+
+/* Comments Section */
+.catlaq-post__comments {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.catlaq-post__comments-count {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.catlaq-comment {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.catlaq-comment__avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--bg-light);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.catlaq-comment__body {
+    flex-grow: 1;
+}
+
+.catlaq-comment__author {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.catlaq-comment__content {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+.catlaq-comment__actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.catlaq-comment__action {
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.catlaq-comment__action:hover {
+    color: var(--primary-color);
+}
+
+/* Reply Form */
+.catlaq-comment-form {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--bg-light);
+    border-radius: 0.375rem;
+}
+
+.catlaq-comment-form__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.catlaq-comment-form__input-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.catlaq-comment-form__input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    background: var(--bg-white);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-family: inherit;
+}
+
+.catlaq-comment-form__input::placeholder {
+    color: var(--text-secondary);
+}
+
+.catlaq-comment-form__input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.catlaq-comment-form__actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+.catlaq-comment-form__btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.catlaq-comment-form__btn-submit {
+    background: var(--primary-color);
+    color: white;
+}
+
+.catlaq-comment-form__btn-submit:hover {
+    opacity: 0.9;
+}
+
+.catlaq-comment-form__btn-cancel {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.catlaq-comment-form__btn-cancel:hover {
+    background: var(--bg-light);
+}
+
+/* Notifications */
+.catlaq-notification {
+    padding: 1rem 1.5rem;
+    background: var(--bg-white);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 0.375rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.catlaq-notification.success {
+    border-left-color: var(--secondary-color);
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.catlaq-notification.warning {
+    border-left-color: var(--accent-color);
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.catlaq-notification.error {
+    border-left-color: var(--danger-color);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.catlaq-notification__icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.catlaq-notification__content {
+    flex-grow: 1;
+}
+
+.catlaq-notification__title {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.catlaq-notification__message {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .catlaq-engagement-feed {
+        padding: 1.5rem;
+    }
+
+    .catlaq-post {
+        padding: 1rem;
+    }
+
+    .catlaq-post__header {
+        gap: 0.75rem;
+    }
+
+    .catlaq-post__action {
+        font-size: 0.85rem;
+    }
+
+    .catlaq-comment-form {
+        flex-direction: column;
+    }
+
+    .catlaq-comment-form__avatar {
+        width: 32px;
+        height: 32px;
+    }
+}

@@ -1,0 +1,419 @@
+/* Dashboard Layout Styles for Catlaq AI Theme */
+
+.catlaq-dashboard {
+    --dashboard-sidebar-width: 280px;
+    --dashboard-header-height: 70px;
+}
+
+/* Dashboard Container */
+.catlaq-dashboard__container {
+    display: flex;
+    min-height: 100vh;
+    background: var(--bg-light);
+}
+
+/* Dashboard Sidebar */
+.catlaq-dashboard__sidebar {
+    width: var(--dashboard-sidebar-width);
+    background: var(--bg-white);
+    border-right: 1px solid var(--border-color);
+    padding: 1.5rem 0;
+    overflow-y: auto;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 100;
+}
+
+.catlaq-dashboard__sidebar-brand {
+    padding: 0 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--primary-color);
+}
+
+.catlaq-dashboard__sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.catlaq-dashboard__menu-item {
+    margin: 0.25rem 0.5rem;
+}
+
+.catlaq-dashboard__menu-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 0.375rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.catlaq-dashboard__menu-link:hover {
+    background: var(--bg-light);
+    color: var(--primary-color);
+}
+
+.catlaq-dashboard__menu-link.active {
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--primary-color);
+    border-left: 3px solid var(--primary-color);
+    padding-left: calc(1rem - 3px);
+}
+
+.catlaq-dashboard__menu-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dashboard Main Content */
+.catlaq-dashboard__main {
+    margin-left: var(--dashboard-sidebar-width);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Dashboard Header */
+.catlaq-dashboard__header {
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--border-color);
+    height: var(--dashboard-header-height);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.catlaq-dashboard__header-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.catlaq-dashboard__header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.catlaq-dashboard__user-menu {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.catlaq-dashboard__user-menu:hover {
+    background: var(--bg-light);
+}
+
+.catlaq-dashboard__user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Dashboard Content */
+.catlaq-dashboard__content {
+    padding: 2rem;
+    flex-grow: 1;
+}
+
+.catlaq-dashboard__breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.catlaq-dashboard__breadcrumb a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.catlaq-dashboard__breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.catlaq-dashboard__breadcrumb-separator {
+    color: var(--text-secondary);
+}
+
+/* Dashboard Widgets */
+.catlaq-dashboard__widgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.catlaq-widget {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.catlaq-widget:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.catlaq-widget__title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin: 0 0 0.75rem 0;
+    letter-spacing: 0.5px;
+}
+
+.catlaq-widget__value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0.5rem 0;
+}
+
+.catlaq-widget__change {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.catlaq-widget__change.positive {
+    color: var(--secondary-color);
+}
+
+.catlaq-widget__change.negative {
+    color: var(--danger-color);
+}
+
+/* Dashboard Tables */
+.catlaq-dashboard__table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.catlaq-dashboard__table thead {
+    background: var(--bg-light);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.catlaq-dashboard__table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.catlaq-dashboard__table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.catlaq-dashboard__table tbody tr:hover {
+    background: var(--bg-light);
+}
+
+.catlaq-dashboard__table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Dashboard Forms */
+.catlaq-dashboard__form {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.catlaq-dashboard__form-group {
+    margin-bottom: 1.5rem;
+}
+
+.catlaq-dashboard__form-group:last-child {
+    margin-bottom: 0;
+}
+
+.catlaq-dashboard__form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.catlaq-dashboard__form-input,
+.catlaq-dashboard__form-select,
+.catlaq-dashboard__form-textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.catlaq-dashboard__form-input:focus,
+.catlaq-dashboard__form-select:focus,
+.catlaq-dashboard__form-textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.catlaq-dashboard__form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Dashboard Buttons */
+.catlaq-dashboard__btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.catlaq-dashboard__btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.catlaq-dashboard__btn-primary:hover {
+    background: #1d4ed8;
+}
+
+.catlaq-dashboard__btn-secondary {
+    background: var(--bg-light);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.catlaq-dashboard__btn-secondary:hover {
+    background: var(--border-color);
+}
+
+.catlaq-dashboard__btn-danger {
+    background: var(--danger-color);
+    color: white;
+}
+
+.catlaq-dashboard__btn-danger:hover {
+    background: #dc2626;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .catlaq-dashboard__sidebar {
+        width: 240px;
+    }
+
+    .catlaq-dashboard__main {
+        margin-left: 240px;
+    }
+
+    .catlaq-dashboard__content {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .catlaq-dashboard__sidebar {
+        width: 200px;
+    }
+
+    .catlaq-dashboard__main {
+        margin-left: 200px;
+    }
+
+    .catlaq-dashboard__header {
+        padding: 0 1rem;
+    }
+
+    .catlaq-dashboard__widgets {
+        grid-template-columns: 1fr;
+    }
+
+    .catlaq-dashboard__table {
+        font-size: 0.85rem;
+    }
+
+    .catlaq-dashboard__table th,
+    .catlaq-dashboard__table td {
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .catlaq-dashboard {
+        --dashboard-sidebar-width: 70px;
+    }
+
+    .catlaq-dashboard__sidebar {
+        width: 70px;
+    }
+
+    .catlaq-dashboard__main {
+        margin-left: 70px;
+    }
+
+    .catlaq-dashboard__sidebar-brand,
+    .catlaq-dashboard__menu-link > span {
+        display: none;
+    }
+
+    .catlaq-dashboard__menu-link {
+        justify-content: center;
+        padding: 0.75rem;
+    }
+
+    .catlaq-dashboard__header-title {
+        font-size: 1rem;
+    }
+
+    .catlaq-dashboard__content {
+        padding: 1rem;
+    }
+
+    .catlaq-dashboard__form {
+        padding: 1rem;
+    }
+}
